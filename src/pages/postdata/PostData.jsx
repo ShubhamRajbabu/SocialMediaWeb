@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./postdata.scss";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
@@ -6,9 +6,16 @@ import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
+import Comments from "../comments/Comments";
 
 const PostData = ({ post }) => {
   const likePost = false;
+  const [commentOpen, setCommentOpen] = useState(false);
+
+  const handleClick = () => {
+    setCommentOpen(!commentOpen);
+  };
+
   return (
     <div className="postdata">
       <div className="container">
@@ -41,7 +48,7 @@ const PostData = ({ post }) => {
             12 Likes
           </div>
           <div className="item">
-            <TextsmsOutlinedIcon />
+            <TextsmsOutlinedIcon onClick={handleClick} />
             20 Comments
           </div>
           <div className="item">
@@ -49,6 +56,7 @@ const PostData = ({ post }) => {
             Share
           </div>
         </div>
+        {commentOpen && <Comments />}
       </div>
     </div>
   );
