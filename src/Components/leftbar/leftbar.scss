@@ -1,0 +1,58 @@
+.left-bar {
+  position: sticky;
+  flex: 2;
+  padding-left: 20px;
+  top: 72px; /* Adjust top position to accommodate the navbar */
+  height: calc(100vh - 72px); /* Adjust height accordingly */
+  overflow: scroll;
+  & ::-webkit-scrollbar {
+    display: none;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 5px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    span {
+      border: none;
+      outline: none;
+      font-size: medium;
+    }
+  }
+
+  .folder {
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e4e6eb;
+    }
+
+    span {
+      margin-left: 10px;
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* Adjust width for laptop screens */
+    width: 350px;
+  }
+
+  @media (min-width: 1024px) {
+    /* Further adjust width for larger laptop screens if needed */
+    width: 400px;
+  }
+}
