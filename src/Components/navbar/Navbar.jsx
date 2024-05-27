@@ -13,14 +13,16 @@ import { AuthContext } from "../../context/AppContext";
 
 const Navbar = () => {
   const { currUser } = useContext(AuthContext);
-  console.log(currUser)
+  console.log(currUser);
   return (
     <div className="navbar">
       <div className="left">
         <Link to="/" style={{ textDecoration: "none" }}>
           <span>SocialApp</span>
         </Link>
-        <HomeOutlinedIcon />
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <HomeOutlinedIcon />
+        </Link>
         <DarkModeOutlinedIcon />
         <GridViewOutlinedIcon />
         <div className="search">
@@ -32,10 +34,10 @@ const Navbar = () => {
         <PersonOulinedIcon />
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
-         <div className='user'>
-          <img src={currUser.profilePic} alt='user'/>
+        <div className="user">
+          <img src={currUser.profilePic} alt="user" />
           <span>{currUser.name}</span>
-        </div> 
+        </div>
       </div>
     </div>
   );
