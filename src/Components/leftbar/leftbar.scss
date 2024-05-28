@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .left-bar {
   position: sticky;
   flex: 2;
@@ -5,14 +7,23 @@
   top: 72px; /* Adjust top position to accommodate the navbar */
   height: calc(100vh - 72px); /* Adjust height accordingly */
   overflow: scroll;
-  & ::-webkit-scrollbar {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  &::-webkit-scrollbar {
     display: none;
   }
   .user {
     display: flex;
     align-items: center;
     gap: 3px;
-    margin-top: 5px;
+    margin-top: 10px;
+
+    h4{
+      font-weight: bold;
+      font-size: 20px;
+      color: var(--text-color);
+    }
 
     img {
       width: 40px;
@@ -30,6 +41,7 @@
   }
 
   .folder {
+    margin-top: 5px;
     display: flex;
     align-items: center;
     padding: 13px;
@@ -37,7 +49,7 @@
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #e4e6eb;
+      background-color: var(--textColorSoft);
     }
 
     span {

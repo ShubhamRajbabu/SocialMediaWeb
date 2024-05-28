@@ -18,15 +18,15 @@ import "./leftbar.scss";
 import { AuthContext } from "../../context/AppContext";
 
 const LeftBar = () => {
-  const { currUser } = useContext(AuthContext);
+  const { currUser, theme } = useContext(AuthContext);
   return (
-    <div className="left-bar">
+    <div className="left-bar" style={{theme}}>
       <div className="user">
         <img
           src={currUser.profilePic}
           alt="user"
         />
-        <h4 style={{ color: "black", marginTop: 10}}>{currUser.name}</h4>
+        <h4>{currUser.name}</h4>
       </div>
       <div className="folder">
         <FontAwesomeIcon icon={faUserFriends} />

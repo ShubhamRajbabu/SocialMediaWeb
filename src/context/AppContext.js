@@ -6,6 +6,10 @@ const AuthContextProvider = ({ children }) => {
   const [currUser, setCurrUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
+  const [theme, setTheme] = useState("light-theme");
+  const toggledTheme = () => {
+    theme === "light-theme" ? setTheme("dark-theme") : setTheme("light-theme");
+  };
 
   const login = () => {
     setCurrUser({
@@ -17,11 +21,12 @@ const AuthContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    document.body.className = theme;
     localStorage.setItem("user", JSON.stringify(currUser));
-  }, [currUser]);
+  }, [currUser, theme]);
 
   return (
-    <AuthContext.Provider value={{ currUser, login }}>
+    <AuthContext.Provider value={{ currUser, login, toggledTheme, theme }}>
       {children}
     </AuthContext.Provider>
   );
